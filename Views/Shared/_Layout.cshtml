@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - sg_rentals</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/js/datatables.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img loading="lazy" src="/img/sgrentals-logo-top.svg" alt="Logo da Sgrentals colorido em svg" height="35">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div class="d-flex bg-light">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-white sidebar-custom">
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li>
+                    <a class="nav-link link-dark" data-controller="Home" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="/img/combinado.png" alt="combined icon" />
+                        Reservas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-dark" data-controller="Home" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="/img/carro.png" alt="car icon"/>
+                        Carros
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link link-dark" data-controller="Home" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="/img/casa.png" alt="house icon" />
+                        Casa
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link link-dark" data-controller="Home" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="/img/amar.png" alt="customer icon" />
+                        Clientes
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link link-dark" data-controller="User" asp-area="" asp-controller="User" asp-action="Index">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                        </svg>
+                        Usuários
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <strong>mdo</strong>
+                </a>
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                    <li><a class="dropdown-item" >New project...</a></li>
+                    <li><a class="dropdown-item" >Settings</a></li>
+                    <li><a class="dropdown-item" >Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" >Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container-fluid bg-light">
+            <div class="main-custom">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/datatables.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

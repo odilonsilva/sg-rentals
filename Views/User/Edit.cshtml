@@ -1,0 +1,62 @@
+﻿@model User;
+@{
+    ViewData["Title"] = "Editar usuario";
+}
+<div>
+    <h1>Editar @Model.Name</h1>
+    
+    <div class="card col-md-8">
+        <form class="card-body" method="post" asp-controller="User" asp-action="Edit">
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+            <input type="hidden"asp-for="Id" />
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" asp-for=Name id="nome" placeholder="Digite o nome">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" asp-for=Email id="email" placeholder="Digite o e-mail">
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+            <div class="mb-3">
+                <label for="login" class="form-label">Login</label>
+                <input type="text" class="form-control" asp-for=Login id="login" placeholder="Digite um login para o usuário">
+                <span class="text-danger" asp-validation-for="Login"></span>
+            </div>
+            <div class="mb-3">
+                <input type="checkbox" class="form-check-input" id="editPass" onclick="tooglePass()">
+                <label for="editPass" class="form-label">Editar senha?</label>
+            </div>
+            <div id="pass-container" class="hide-pass">
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" asp-for=Password id="senha" placeholder="Digite a senha">
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <input type="checkbox" class="form-check-input" asp-for=isAdmin id="isAdmin">
+                <label for="isAdmin" class="form-label">Usuário Administrador</label>
+            </div>
+            <div class="bg-light p-3 m-0 form-actions">
+                <button type="submit" class="btn btn-primary">
+                    <img src="/img/disquete.png" class="save icon" />
+                    Salvar
+                </button>
+                <a type="button" class="btn btn-secondary" aps-asp-controller="User" asp-action="Index">
+                    <img src="/img/seta-dupla.png" class="back icon" />
+                    Voltar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <script src="/js/user.js"></script>
+}
