@@ -7,7 +7,7 @@ namespace sg_rentals.Repositories
         IEnumerable<Customer> List();
         Customer Get(int id);
         Customer Create(Customer customer);
-        Customer Update(Customer customer, Customer? oldCustomer = null);
+        Customer Update(Customer customer);
         bool Delete(int id);
         bool IsEmailUsed(string email, int id = 0);
     }

@@ -61,12 +61,8 @@ namespace sg_rentals.Repositories
             return _dbContext.Customers.ToList();
         }
 
-        public Customer Update(Customer customer, Customer? oldUser = null)
+        public Customer Update(Customer customer)
         {
-            if (oldUser != null) 
-            {
-                _dbContext.Entry(oldUser).State = EntityState.Detached;
-            }
             _dbContext.Customers.Update(customer);
             _dbContext.SaveChanges();
             return customer;

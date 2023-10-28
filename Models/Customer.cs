@@ -25,5 +25,8 @@ namespace sg_rentals.Models
 
         [Required(ErrorMessage = "Digite a Cidade.")]
         public string City { get; set; }
+
+        [Required(ErrorMessage = "Digite a CEP.")]
+        public string ZipCode { get; set; }
     }
 }

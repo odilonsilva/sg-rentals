@@ -38,12 +38,12 @@ namespace sg_rentals.Controllers
 
                 if (isEmailUsed)
                 {
-                    TempData["ErrorMessage"] = "Esse e-mail está em uso por outro Usuário.";
+                    TempData["ErrorMessage"] = "Esse e-mail está em uso por outro Cliente.";
                     return View(customer);
                 } else {
                     _repository.Create(customer);
 
-                    TempData["SuccessMessage"] = "Usuário cadastrado com sucesso.";
+                    TempData["SuccessMessage"] = "Cliente cadastrado com sucesso.";
                     return RedirectToAction("Index");
                 }
             }
@@ -54,14 +54,14 @@ namespace sg_rentals.Controllers
         {
             if (id == null || id == 0)
             {
-                TempData["ErrorMessage"] = "Falha ao buscar esse Usuário.";
+                TempData["ErrorMessage"] = "Falha ao buscar esse Cliente.";
                 return RedirectToAction("Index");
             }
 
             var customer = _repository.Get((int)id);
             if (customer == null)
             {
-                TempData["ErrorMessage"] = "Falha ao buscar esse Usuário.";
+                TempData["ErrorMessage"] = "Falha ao buscar esse Cliente.";
                 return RedirectToAction("Index");
             }
 
@@ -71,27 +71,16 @@ namespace sg_rentals.Controllers
         [HttpPost]
         public IActionResult Edit(Customer customer)
         {
-            Customer oldUser = null;
-
-            if (customer.Password == null)
-            {
-                oldUser = _repository.Get(customer.Id);
-
-                if (oldUser == null) return RedirectToAction("Index");
-
-                customer.Password = oldUser.Password;
-            }
-
             bool isEmailUsed = _repository.IsEmailUsed(customer.Email, customer.Id);
 
             if (isEmailUsed)
             {
-                TempData["ErrorMessage"] = "Esse e-mail está em uso por outro Usuário.";
+                TempData["ErrorMessage"] = "Esse e-mail está em uso por outro Cliente.";
                 return View(customer); 
             } else { 
-                _repository.Update(customer, oldUser);
+                _repository.Update(customer);
                 
-                TempData["SuccessMessage"] = "Usuário editado com sucesso.";
+                TempData["SuccessMessage"] = "Cliente editado com sucesso.";
                 return RedirectToAction("Index");
             }
             
@@ -100,10 +89,10 @@ namespace sg_rentals.Controllers
         public IActionResult Delete(int id) {
             if(_repository.Delete(id))
             {
-                TempData["SuccessMessage"] = "Usuário excluido com sucesso.";
+                TempData["SuccessMessage"] = "Cliente excluido com sucesso.";
                 return RedirectToAction("Index");
             }
-            TempData["ErrorMessage"] = "Usuário não encontrado.";
+            TempData["ErrorMessage"] = "Cliente não encontrado.";
             return RedirectToAction("Index");
         }
 

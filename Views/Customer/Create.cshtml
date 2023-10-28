@@ -1,0 +1,88 @@
+﻿@model Customer;
+@{
+    ViewData["Title"] = "Cadastrar Cliente";
+}
+<div>
+    <h1>Cadastrar Cliente</h1>
+
+    <div class="card col-md-8">
+        <form class="card-body" method="post" asp-controller="Customer" asp-action="Create">
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" asp-for=Name id="nome" placeholder="Digite o nome">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" asp-for=Email id="email" placeholder="Digite o e-mail">
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="phonenumber" class="form-label">Celular</label>
+                        <input type="text" class="form-control" asp-for="PhoneNumber" id="phonenumber" placeholder="Digite o numero de telefone">
+                        <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="zipcode" class="form-label">CEP</label>
+                        <input type="text" class="form-control" asp-for="ZipCode" id="zipcode" placeholder="Digite o cep">
+                        <span class="text-danger" asp-validation-for="ZipCode"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-md-9">
+                        <label for="address" class="form-label">Endereço</label>
+                        <input type="text" class="form-control" asp-for="Address" id="address" placeholder="Digite o endereço">
+                        <span class="text-danger" asp-validation-for="Address"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="address-number" class="form-label">Número</label>
+                        <input type="number" class="form-control" asp-for="AddressNumber" id="address-number" placeholder="Digite o numero da residência">
+                        <span class="text-danger" asp-validation-for="AddressNumber"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="neighborhood" class="form-label">Bairro</label>
+                        <input type="text" class="form-control" asp-for="Neighborhood" id="neighborhood" placeholder="Digite o Bairro">
+                        <span class="text-danger" asp-validation-for="Neighborhood"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="city" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" asp-for="City" id="city" placeholder="Digite a Cidade">
+                        <span class="text-danger" asp-validation-for="City"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light p-3 m-0 form-actions">
+                <button type="submit" class="btn btn-primary">
+                    <img src="/img/disquete.png" class="save icon"/>
+                    Salvar
+                </button>
+                <a type="button" class="btn btn-secondary" aps-asp-controller="User" asp-action="Index">
+                    <img src="/img/seta-dupla.png" class="back icon" />
+                    Voltar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <script src="/js/jquery.mask.min.js"></script>
+    <script src="/js/customer.js"></script>
+}
