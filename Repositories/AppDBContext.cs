@@ -12,5 +12,7 @@ namespace sg_rentals.Repositories
         public DbSet<User> Users { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<House> Houses { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<CarBrandModel> CarBrandModels { get; set; }
     }
 }
