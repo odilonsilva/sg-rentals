@@ -14,5 +14,6 @@ namespace sg_rentals.Repositories
         public DbSet<House> Houses { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<CarBrandModel> CarBrandModels { get; set; }
+        public DbSet<Car> Cars { get; set; }
     }
 }

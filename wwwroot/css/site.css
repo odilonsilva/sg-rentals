@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+/*  margin-bottom: 60px;*/
 }
 
 .btn.btn-primary {
@@ -23,12 +23,11 @@ body {
 }
 
 .sidebar-custom {
-/*    margin-top: -20px;*/
     width: 280px;
-    height: calc(100vh - 90px);
+    height: calc(100vh - 65px);
 }
 .main-custom {
-    height: calc(100vh - 80px) !important;
+    height: calc(100vh - 65px) !important;
     width: 100%;
 }
 
@@ -105,6 +104,15 @@ div.dataTables_wrapper div.dataTables_info {
 }
 .is-admin-icon .close svg {
     color: red;
+}
+form label {
+    font-weight: 500;
+}
+
+.car-color {
+    width: 28px;
+    height: 28px;
+    border-radius: 16px;
 }
 .login {
     background-image: url('/img/login-back.jpg');

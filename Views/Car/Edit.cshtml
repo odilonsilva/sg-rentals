@@ -1,0 +1,78 @@
+﻿@model Car;
+@{
+    ViewData["Title"] = "Editar Carro";
+}
+<div>
+    <h1>Editar Carro</h1>
+
+    <div class="card col-md-6">
+        <form id="edit" class="card-body" method="post" asp-controller="Car" asp-action="Edit">
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="licensePlate" class="form-label">Placa</label>
+                        <input type="text" class="form-control" asp-for="LicensePlate" id="licensePlate"
+                               placeholder="Digite a placa do veiculo"
+                               maxlength="7">
+                        <span class="text-danger" asp-validation-for="LicensePlate"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="color" class="form-label">Cor</label>
+                        <input type="color" class="form-control" asp-for="Color" id="color">
+                        <span class="text-danger" asp-validation-for="Color"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="price" class="form-label">Preço de locação</label>
+                        <input type="text" class="form-control" asp-for="Price" id="price">
+                        <span class="text-danger" asp-validation-for="Price"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="status" class="form-label">Status</label>
+                        <select id="status" class="form-select" asp-for="Status" asp-items="@ViewBag.Status">
+                            <option value="">Selecione um status</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="Status"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="brand" class="form-label">Marca</label>
+                        <select id="brand" class="form-select" asp-for="BrandId" asp-items="@ViewBag.Brands">
+                            <option value="">Escolha a marca</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="BrandId"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="model" class="form-label">Modelo</label>
+                        <select id="model" class="form-select" asp-for="CarBrandModelId" asp-items="@ViewBag.CarModels">
+                            <option value="">Escolha o modelo</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="CarBrandModelId"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light p-3 m-0 form-actions">
+                <button type="submit" class="btn btn-primary">
+                    <img src="/img/disquete.png" class="save icon" />
+                    Salvar
+                </button>
+                <a type="button" class="btn btn-secondary" aps-asp-controller="Car" asp-action="Index">
+                    <img src="/img/seta-dupla.png" class="back icon" />
+                    Voltar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <script src="/js/jquery.mask.min.js"></script>
+    <script src="/js/car.js"></script>
+}
