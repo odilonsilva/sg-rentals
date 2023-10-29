@@ -5,6 +5,7 @@ function clearForm() {
 }
 
 $(document).ready(function () {
+    $('#price').mask("#.##0,00", { reverse: true });
     $('#phonenumber').mask("(00) 00000-0000");
     $('#zipcode').mask("00000-000");
     $('#zipcode').on('blur', function () {

@@ -30,9 +30,9 @@ namespace sg_rentals.Repositories
             return false;
         }
 
-        public User Get(int id)
+        public User? Get(int id)
         {
-            return _dbContext.Users.Where(u => u.Id == id).Single();
+            return _dbContext.Users.Find(id);
         }
 
         public bool IsEmailUsed(string email, int id = 0)

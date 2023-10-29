@@ -14,6 +14,7 @@ builder.Services.AddDbContext<AppDBContext>(options =>
 //scopes
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IHouseRepository, HouseRepository>();
 
 var app = builder.Build();
 
