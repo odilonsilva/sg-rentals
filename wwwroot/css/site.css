@@ -114,6 +114,9 @@ form label {
     height: 28px;
     border-radius: 16px;
 }
+.booking-icon img {
+    width: 24px;
+}
 .login {
     background-image: url('/img/login-back.jpg');
     background-repeat: no-repeat;

@@ -1,0 +1,93 @@
+﻿@model Booking;
+@{
+    ViewData["Title"] = "Editar Reserva";
+}
+<div>
+    <h1>Editar Reserva</h1>
+
+    <div class="card col-md-5">
+        <form id="create" class="card-body" method="post" asp-controller="Booking" asp-action="Edit">
+            <input type="hidden" asp-for="Id" id="id">
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="customer" class="form-label">Cliente</label>
+                        <select id="customer" class="form-select" asp-for="CustomerId" asp-items="@ViewBag.Customers">
+                            <option value="">Selecione um cliente</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="CustomerId"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="price" class="form-label">Preço de locação</label>
+                        <input type="text" class="form-control" asp-for="Price" id="price" readonly>
+                        <span class="text-danger" asp-validation-for="Price"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="type" class="form-label">Tipo de locação</label>
+                        <select id="type" class="form-select" asp-for="Type">
+                            <option value="0">Carros</option>
+                            <option value="1">Casas</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="Type"></span>
+                    </div>
+                    <div class="col-md-6 container-car">
+                        <label for="CarId" class="form-label">Carro</label>
+                        <select id="CarId" class="form-select" asp-for="CarId" asp-items="@ViewBag.Cars">
+                            <option value="">Selecione um Carro</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="CarId"></span>
+                    </div>
+                    <div class="col-md-6 container-house">
+                        <label for="HouseId" class="form-label">Casa</label>
+                        <select id="HouseId" class="form-select" asp-for="HouseId" asp-items="@ViewBag.Houses">
+                            <option value="">Selecione uma Casa</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="HouseId"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="initDate" class="form-label">
+                            Data da reserva
+                        </label>
+                        <input type="hidden" id="initDate" asp-for="DateStart" />
+                        <input type="hidden" id="endDate" asp-for="DateEnd" />
+                        <input type="text" id="rangeDate" class="form-control" autocomplete="off" placeholder="Selecione um periodo" />
+                        <span class="text-danger" asp-validation-for="DateStart"></span>
+                        <span class="text-danger" asp-validation-for="DateEnd"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light p-3 m-0 form-actions">
+                <button type="submit" class="btn btn-primary">
+                    <img src="/img/disquete.png" class="save icon" />
+                    Salvar
+                </button>
+                <a type="button" class="btn btn-secondary" aps-asp-controller="Booking" asp-action="Index">
+                    <img src="/img/seta-dupla.png" class="back icon" />
+                    Voltar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script src="/js/jquery.mask.min.js"></script>
+    <script src="/js/booking.js"></script>
+}
