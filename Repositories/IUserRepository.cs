@@ -6,6 +6,7 @@ namespace sg_rentals.Repositories
     {
         IEnumerable<User> List();
         User? Get(int id);
+        User? FindByLoginAndPassword(string login, string password);
         User Create(User user);
         User Update(User user, User? oldUser = null);
         bool Delete(int id);

@@ -5,6 +5,7 @@ using System.Diagnostics;
 
 namespace sg_rentals.Controllers
 {
+    [Filters.UserLogged]
     public class HouseController : Controller
     {
         private readonly ILogger<HouseController> _logger;

@@ -1,0 +1,9 @@
+﻿@model User;
+<div class="dropdown">
+    <a class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+        <strong>@Model.Name</strong>
+    </a>
+    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+        <li><a class="dropdown-item" asp-controller="Login" asp-action="Logout">Sair</a></li>
+    </ul>
+</div>

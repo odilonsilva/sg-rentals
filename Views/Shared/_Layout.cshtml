@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - sg_rentals</title>
+    <title>@ViewData["Title"] - SG Rentals</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/js/datatables.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link link-dark" data-controller="Home" asp-area="" asp-controller="Home" asp-action="Index">
+                    <a class="nav-link link-dark" data-controller="Booking" asp-area="" asp-controller="Booking" asp-action="Index">
                         <img src="/img/combinado.png" alt="combined icon" />
                         Reservas
                     </a>
@@ -59,19 +59,7 @@
                 </li>
             </ul>
             <hr>
-            <div class="dropdown">
-                <a class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong>mdo</strong>
-                </a>
-                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                    <li><a class="dropdown-item" >New project...</a></li>
-                    <li><a class="dropdown-item" >Settings</a></li>
-                    <li><a class="dropdown-item" >Profile</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" >Sign out</a></li>
-                </ul>
-            </div>
+            @await Component.InvokeAsync("Logout")
         </div>
         <div class="container-fluid bg-light">
             <div class="main-custom">

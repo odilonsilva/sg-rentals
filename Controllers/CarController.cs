@@ -6,6 +6,7 @@ using System.Diagnostics;
 
 namespace sg_rentals.Controllers
 {
+    [Filters.UserLogged]
     public class CarController : Controller
     {
         private readonly ILogger<CarController> _logger;

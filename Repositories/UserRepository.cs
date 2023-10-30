@@ -30,6 +30,14 @@ namespace sg_rentals.Repositories
             return false;
         }
 
+        public User? FindByLoginAndPassword(string login, string password)
+        {
+            return _dbContext.Users
+                .Where(u => u.Login.Equals(login))
+                .Where(u => u.Password.Equals(password))
+                .FirstOrDefault();
+        }
+
         public User? Get(int id)
         {
             return _dbContext.Users.Find(id);
