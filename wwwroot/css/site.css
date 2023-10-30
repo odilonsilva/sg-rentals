@@ -129,3 +129,10 @@ form label {
     position:absolute;
     z-index: -1;
 }
+.home-screen {
+    padding-top: 15%;
+    opacity: 0.5;
+}
+.home-screen img {
+    filter: grayscale(100%);
+}

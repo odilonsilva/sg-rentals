@@ -53,7 +53,7 @@ $(document).ready(function () {
     function toogleFields() {
         const typeVal = $('#type').val();
         const isEdit = document.querySelector('#id') == null ? false : true;
-        console.log(isEdit);
+        
         if (!isEdit) {
             $('#price').val('');
         }
